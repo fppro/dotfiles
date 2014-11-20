@@ -1,40 +1,58 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+# -*- mode: sh -*-
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+#
+# Executes commands at the start of an interactive session.
+#
+# Author:
+#   Nathan Houle <nathan@nathanhoule.com>
+#
+# Credit to:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Zach Holman <zach@zachholman.com>
+#
 
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
+function {
+  export DOTFILES="${HOME}/.dotfiles"
+  export DEV_PATH="${HOME}/dev"
+  export SRC_PATH="${DEV_PATH}/src"
 
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+  #
+  # Zprezto
+  #
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
+  # Load zprezto if it's installed
+  if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  fi
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
+  #
+  # Zsh submodules
+  #
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+  # All zsh config files (all *.zsh files contained in $DOTFILES children
+  # directories). Note that this glob is limited to one directory level deep.
+  local -a config_files
+  config_files=(${DOTFILES}/*/*.zsh)
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
+  # Load path files
+  for file in ${(M)config_files:#*/path.zsh}; do
+    source $file
+  done
 
-unset config_files
+  # Load all files except for path, completions, and host-specific files
+  for file in ${config_files:#*/(path.zsh|completion.zsh|host/*.zsh)}; do
+    source $file
+  done
+
+  # Load host-specific files
+  for file in ${(M)config_files:#*/host/*.zsh}; do
+    if [[ "$(basename $file | cut -d '.' -f 1)" == "$(hostname | cut -d '.' -f 1)" ]]; then
+      source $file
+    fi
+  done
+
+  # Load completions
+  for file in ${(M)config_files:#*/completion.zsh}; do
+    source $file
+  done
+}
