@@ -2,12 +2,11 @@
 #
 
 [hub]
-        protocol = https
+        protocol = ssh
+
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
-[credential]
-        helper = GIT_CREDENTIAL_HELPER
+	    name = Noah Crocker
+	    email = necrocke@umich.edu
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
@@ -22,10 +21,8 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
-[apply]
-        whitespace = nowarn
 [mergetool]
-        keepBackup = false
+        prompt = false
 [difftool]
         prompt = false
 [help]
@@ -35,4 +32,7 @@
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to surpress warning message
-        default = simple
+        default = current
+
+[branch]
+        autosetuprebase = always
