@@ -33,15 +33,10 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'homebrew' \
-  'osx' \
   'git' \
-  'haskell' \
-  'node' \
   'python' \
   'ruby' \
   'completion' \
-  'fasd' \
   'syntax-highlighting' \
   'history-substring-search' \
   'ssh' \
@@ -52,7 +47,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'vi'
+# zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -69,7 +64,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Set the command prefix on non-GNU systems.
-zstyle ':prezto:module:gnu-utility' prefix 'g'
+# zstyle ':prezto:module:gnu-utility' prefix 'g'
 
 #
 # History Substring Search
@@ -98,7 +93,7 @@ zstyle ':prezto:module:gnu-utility' prefix 'g'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'ndhoule'
+zstyle ':prezto:module:prompt' theme 'sorin'
 
 #
 # Ruby
@@ -122,7 +117,7 @@ zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_github'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa'
 
 #
 # Syntax Highlighting
@@ -131,17 +126,17 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_github'
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
-  'main' \
-  'brackets' \
-  'pattern' \
-  'cursor' \
-  'root'
+  'main' #\
+#   'brackets' \
+#   'pattern' \
+#   'cursor' \
+#   'root'
 
 # Set syntax highlighting styles.
-zstyle ':prezto:module:syntax-highlighting' styles \
-  'builtin' 'bg=blue' \
-  'command' 'bg=blue' \
-  'function' 'bg=blue'
+#zstyle ':prezto:module:syntax-highlighting' styles \
+#  'builtin' 'bg=blue' \
+#  'command' 'bg=blue' \
+#  'function' 'bg=blue'
 
 #
 # Terminal

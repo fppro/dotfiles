@@ -48,9 +48,6 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that zsh searches for programs.
 path=(
   $HOME/bin
-  $HOME/.cabal/bin
-  $HOME/.rbenv/shims
-  $HOME/.pyenv/shims
   /usr/local/{bin,sbin}
   $path
 )

@@ -6,7 +6,7 @@
 # using Homebrew.
 
 # Check for Homebrew
-if test ! $(which brew)
+if test ! $(which brew) && [[ "$OSTYPE" == "darwin" ]]
 then
   echo "  Installing Homebrew for you."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /tmp/homebrew-install.log
