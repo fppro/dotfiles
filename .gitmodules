@@ -1,6 +1,6 @@
 [submodule "vim/vim.symlink"]
 	path = vim/vim.symlink
-	url = git@github.com:VerTiGoEtrex/vimrc.git
+	url = git@github.com:fppro/vimrc.git
 [submodule "zsh/zprezto.symlink"]
 	path = zsh/zprezto.symlink
-	url = git@github.com:VerTiGoEtrex/prezto.git
+	url = git@github.com:fppro/prezto.git
