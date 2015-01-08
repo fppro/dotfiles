@@ -13,6 +13,8 @@
 
 function {
   export DOTFILES="${HOME}/.dotfiles"
+  export ZSH="${DOTFILES}"
+  export PROJECTS="~/code"
   export DEV_PATH="${HOME}/dev"
   export SRC_PATH="${DEV_PATH}/src"
 
