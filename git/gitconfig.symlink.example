@@ -5,8 +5,8 @@
         protocol = ssh
 
 [user]
-	    name = Noah Crocker
-	    email = necrocke@umich.edu
+        name = AUTHORNAME
+        email = AUTHOREMAIL
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
