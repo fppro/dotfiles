@@ -5,8 +5,8 @@
         protocol = ssh
 
 [user]
-	    name = Daniel MacLennan
-	    email = dsmaclen@umich.edu
+        name = AUTHORNAME
+        email = AUTHOREMAIL
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
